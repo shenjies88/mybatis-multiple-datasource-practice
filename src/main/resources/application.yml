@@ -1,13 +1,22 @@
 spring:
-  datasource:
-    datasource1:
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/datasource1?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: password
-    datasource2:
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/datasource2?useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: password
+  shardingsphere:
+    datasource:
+      - name: datasource1
+        url: jdbc:mysql://127.0.0.1:3306/datasource1?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: password
+        master: true
+      - name: datasource1_slave
+        url: jdbc:mysql://127.0.0.1:3306/datasource1_slave?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: password
+        master: false
+  dynamic:
+    datasource:
+      datasource2:
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/datasource2?useUnicode=true&characterEncoding=utf-8
+        username: root
+        password: password
 
 logging:
   level:
