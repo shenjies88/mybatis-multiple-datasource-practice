@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    datasource1:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/datasource1?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: password
+    datasource2:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/datasource2?useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: password
+
+logging:
+  level:
+    root: info
+    com.shenjies88.practice.multipledatasource: debug
+    com.shenjies88.practice.multipledatasource.data1mapper: debug
+    com.shenjies88.practice.multipledatasource.data2mapper: debug
