@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author shenjies88
@@ -23,7 +25,11 @@ public class DataSourceConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.datasource1")
     DataSource dsOne() {
-        return DataSourceBuilder.create().build();
+        // Configure actual data sources
+        Map<String, DataSource> dataSourceMap = new HashMap<>();
+        for (ShardingSphereConfig.DataSourceProperties dataSourceProperties : shardingSphereConfig.getDatasource()) {
+        }
+        return null;
     }
 
     @Bean
