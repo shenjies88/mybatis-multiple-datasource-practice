@@ -23,7 +23,6 @@ public class DataSourceConfig {
     private final ShardingSphereConfig shardingSphereConfig;
 
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.datasource1")
     DataSource dsOne() {
         // Configure actual data sources
         Map<String, DataSource> dataSourceMap = new HashMap<>();
