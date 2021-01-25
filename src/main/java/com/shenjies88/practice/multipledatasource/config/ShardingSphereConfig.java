@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author shenjies88
@@ -16,6 +17,8 @@ import java.util.List;
 public class ShardingSphereConfig {
 
     private List<DataSourceProperties> datasource;
+
+    private Map<String, String> props;
 
     @Data
     public static class DataSourceProperties {

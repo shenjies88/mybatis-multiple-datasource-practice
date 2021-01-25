@@ -11,6 +11,8 @@ spring:
         username: root
         password: password
         master: false
+    props:
+      sql.show: true
   dynamic:
     datasource:
       datasource2:

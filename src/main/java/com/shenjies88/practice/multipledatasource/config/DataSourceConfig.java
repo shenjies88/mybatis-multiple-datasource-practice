@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.CollectionUtils;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -44,7 +45,13 @@ public class DataSourceConfig {
             }
         }
         MasterSlaveRuleConfiguration masterSlaveRuleConfig = new MasterSlaveRuleConfiguration("ds_master_slave", masterName, slaveName);
-        return MasterSlaveDataSourceFactory.createDataSource(dataSourceMap, masterSlaveRuleConfig, new Properties());
+        Properties properties = new Properties();
+        if (!CollectionUtils.isEmpty(shardingSphereConfig.getProps())) {
+            for (Map.Entry<String, String> props : shardingSphereConfig.getProps().entrySet()) {
+                properties.setProperty(props.getKey(), props.getValue());
+            }
+        }
+        return MasterSlaveDataSourceFactory.createDataSource(dataSourceMap, masterSlaveRuleConfig, properties);
     }
 
     @Bean
