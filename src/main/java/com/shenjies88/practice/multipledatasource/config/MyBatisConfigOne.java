@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = "com.shenjies88.practice.multipledatasource.data1mapper", sqlSessionFactoryRef = "sqlSessionFactory1")
 public class MyBatisConfigOne {
 
-    @Resource(name = "dsOne")
+    @Resource(name = "masterSlaveDataSource")
     DataSource dsOne;
 
     @Bean
